@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenda de Maletas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./assets/malafacil logo.png" alt="LogoMarca">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#fale Conosco">Fale Conosco</a></li>
+            </ul>
+        </nav>
+
+        <div class="header">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar Maletas...">
+                <button>Pesquisar</button>
+            </div>
+
+    </header>
+    
+    <div class="cart" onclick="toggleCart()">
+        <img src="./assets/carrinho.png" alt="Carrinho de compras">
+    </div>
+
+    <div class="cart-content" id="cart-content">
+        <div id="cart-items"></div>
+    </div>
+
+
+    <section id="inicio" class="hero">
+        <h1>Bem-vindo ao MalaFácil</h1>
+        <p>Encontre as melhores maletas para suas necessidades de viagem e transporte.</p>
+    </section>
+
+    <section id="produtos" class="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="container">
+            <div class="product">
+                <img src="./assets/maleta executiva.webp" alt="Imagem Maleta Executiva">
+                <h2>Maleta Executiva</h2>
+                <p>Elegante e resistente, perfeita para o dia a dia.</p>
+                <p class="preco">R$ 299,90</p>
+                <div class="buttons">
+                    <button onclick="addToCart('Maleta Executiva', '299.90')">Comprar Agora</button>
+                    <button style="background: #007bff;">Saiba Mais</button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="./assets/maleta de viagem.webp" alt="Imagem Maleta de Viagem">
+                <h2>Maleta de Viagem</h2>
+                <p>Ideal para viagens curtas, com ótimo espaço interno.</p>
+                <p class="preco">R$ 399,90</p>
+                <div class="buttons">
+                    <button onclick="addToCart('Maleta de Viagem', '399.90')">Comprar Agora</button>
+                    <button style="background: #007bff;">Saiba Mais</button>
+                </div>
+
+            </div>
+            <div class="product">
+                <img src="./assets/maleta de ferramentas.webp" alt="Imagem Maleta De ferramentas">
+                <h2>Maleta de Ferramentas</h2>
+                <p>Feita para organização e transporte de ferramentas.</p>
+                <p class="preco">R$ 249,90</p>
+                <div class="buttons">
+                    <button onclick="addToCart('Maleta de Ferramentas', '249.90')">Comprar Agora</button>
+                    <button style="background: #007bff;">Saiba Mais</button>
+                </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleCart() {
+            var cart = document.getElementById('cart-content');
+            cart.style.display = cart.style.display === 'none' || cart.style.display === '' ? 'block' : 'none';
+        }
+        function addToCart(product, price) {
+            var cartItems = document.getElementById('cart-items');
+            var item = document.createElement('div');
+            item.classList.add('cart-item');
+            item.innerHTML = `<span>${product}</span> <span>R$ ${price}</span>`;
+            cartItems.appendChild(item);
+        }
+    </script>
+
+    <section id="sobre">
+        <div class="sobre">
+            <h2>Sobre Nós</h2>
+            <p>Somos uma empresa dedicada à comercialização de maletas de alta qualidade, garantindo praticidade e segurança para diversos usos. Com anos de experiência no mercado, trabalhamos com as melhores marcas e materiais para oferecer produtos resistentes e elegantes.</p>
+            <p>Nossa equipe é formada por especialistas que entendem a importância de uma maleta bem estruturada, seja para viagens, negócios ou armazenamento de ferramentas. Buscamos inovação constante, trazendo designs modernos e soluções eficientes para nossos clientes.</p>
+            <p>Além disso, prezamos por um atendimento de excelência, oferecendo suporte personalizado e condições especiais de compra. Nosso compromisso é garantir a melhor experiência de compra, desde a escolha do produto até a entrega no conforto da sua casa.</p>
+            <p>Junte-se a milhares de clientes satisfeitos e descubra por que somos referência no mercado de maletas.</p>
+        </div>
+    </section>
+
+    <section id="fale Conosco" class="contato">
+        <h2>Fale Conosco</h2>
+        <p>Entre em contato conosco para mais informações ou caso tenha uma dúvida.</p>
+        <form action="#" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</body>
+</html>
